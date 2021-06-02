@@ -38,11 +38,6 @@ class DiscussionsSeeder extends Seeder
                 Discussion_User::create(["user_id"=>$discussion->user_id,"discussion_id"=>$discussion->id,
                     "last_read_at"=>Date::now(),"last_read_post_number"=>$discussion->last_post_number]);
             }
-            //fix comments
-            foreach ($comments as $comment){
-                $comment->content='<t><p>'.$comment->content.'</p></t>';
-                $comment->save();
-            }
         }
     }
 }
